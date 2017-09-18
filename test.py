@@ -57,7 +57,6 @@ print(a)
 # a = ['a', 'd', 'c']
 # a.sort()
 # print(a)
-# a=set({1,[2,3]})
-# print(a)
+# a=set({1,[2,3]})# print(a)
 
 

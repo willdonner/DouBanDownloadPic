@@ -50,18 +50,16 @@ class BeautifulSoupPic():
                 img_name = first_pos[-15:-4]
                 self.save_img(first_pos, img_name)
     def get_pic(self):
-        input("Press <enter>")
         print('请输入你想下载的网址')
-
         downlode_url = input().strip()
         print(downlode_url)
         r = self.request(downlode_url)
         print('开始网页get请求')
         print('获取页数')
-        all_message = BeautifulSoup(r.text, 'lxml').find_all('div', class_='paginator')
-        for a_page in all_message:
-            page = int(a_page.find('span', class_='thispage').get('data-total-page'))
-            print(page)
+        all_message = BeautifulSoup(r.text, 'lxml').find('div', class_='paginator')
+        #for a_page in all_message:
+        page = int(all_message.find('span', class_='thispage').get('data-total-page'))
+        print(page)
         for page in range(0, page*18, 18):
             if page == 0:
                 url = downlode_url
@@ -70,5 +68,4 @@ class BeautifulSoupPic():
                 url = downlode_url+'/?start='+str(page)
                 self.geturl(url)
 beauty = BeautifulSoupPic()  #创建类的实例
-input("Press2 <enter>")
 beauty.get_pic()
