@@ -1,5 +1,5 @@
-# a = r'\\\t\\' # a是整数
-# print(a)
+a = input()
+print(a)
 # a = b'ABC' # a变为字符串
 # print('rank:%d %%'%7)
 # s1=72

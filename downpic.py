@@ -5,8 +5,8 @@ import time
 
 class BeautifulSoupPic():
     def __init__(self): ##初始化
-        self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36'}
-        self.web_url = 'https://www.douban.com/photos/album/127879998'
+        #self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36'}
+        #self.web_url = 'https://www.douban.com/photos/album/127879998'
         self.folder_path = 'D:\BeautifulPicture'
 
     def request(self, url): ##返回网页的请求
@@ -50,7 +50,12 @@ class BeautifulSoupPic():
                 img_name = first_pos[-15:-4]
                 self.save_img(first_pos, img_name)
     def get_pic(self):
-        r = self.request('https://www.douban.com/photos/album/127879998')
+        input("Press <enter>")
+        print('请输入你想下载的网址')
+
+        downlode_url = input().strip()
+        print(downlode_url)
+        r = self.request(downlode_url)
         print('开始网页get请求')
         print('获取页数')
         all_message = BeautifulSoup(r.text, 'lxml').find_all('div', class_='paginator')
@@ -59,10 +64,11 @@ class BeautifulSoupPic():
             print(page)
         for page in range(0, page*18, 18):
             if page == 0:
-                url = 'https://www.douban.com/photos/album/127879998'
+                url = downlode_url
                 self.geturl(url)
             else:
-                url = 'https://www.douban.com/photos/album/127879998/?start='+str(page)
+                url = downlode_url+'/?start='+str(page)
                 self.geturl(url)
 beauty = BeautifulSoupPic()  #创建类的实例
+input("Press2 <enter>")
 beauty.get_pic()
