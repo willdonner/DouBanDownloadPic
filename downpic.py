@@ -7,8 +7,9 @@ class BeautifulSoupPic():
     def __init__(self): ##初始化
         #self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36'}
         #self.web_url = 'https://www.douban.com/photos/album/127879998'
-        self.folder_path = 'D:\BeautifulPicture'
-
+        #self.folder_path = 'D:\BeautifulPicture'
+        #mac下目录
+        self.folder_path = '/Users/willdonner/DevsTest'
     def request(self, url): ##返回网页的请求
         r = requests.get(url)
         return r
@@ -34,6 +35,7 @@ class BeautifulSoupPic():
         f.write(img.content)
         print(file_name + '保存成功')
         f.close()
+        
     def geturl(self, url):
             r = self.request(url)
             print('开始获取所有img标签')
@@ -50,8 +52,8 @@ class BeautifulSoupPic():
                 img_name = first_pos[-15:-4]
                 self.save_img(first_pos, img_name)
     def get_pic(self):
-        print('请输入你想下载的网址')
-        downlode_url = input().strip()
+        #print('请输入你想下载的网址')
+        downlode_url = 'https://www.douban.com/photos/album/1651608212/'
         print(downlode_url)
         r = self.request(downlode_url)
         print('开始网页get请求')
@@ -69,3 +71,4 @@ class BeautifulSoupPic():
                 self.geturl(url)
 beauty = BeautifulSoupPic()  #创建类的实例
 beauty.get_pic()
+print('下载完成')
