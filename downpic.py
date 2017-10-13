@@ -7,6 +7,7 @@ class BeautifulSoupPic():
     def __init__(self): ##初始化
         #self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36'}
         #self.web_url = 'https://www.douban.com/photos/album/127879998'
+        #win下目录
         #self.folder_path = 'D:\BeautifulPicture'
         #mac下目录
         self.folder_path = '/Users/willdonner/DevsTest'
