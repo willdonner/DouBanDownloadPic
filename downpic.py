@@ -72,4 +72,4 @@ class BeautifulSoupPic():
                 self.geturl(url)
 beauty = BeautifulSoupPic()  #创建类的实例
 beauty.get_pic()
-print('下载完成')
+print('下载完成!')
