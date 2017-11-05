@@ -13,7 +13,7 @@ text = open(path.join(d, '1234.txt')).read()
 # read the mask image
 # taken from
 # http://www.stencilry.org/stencils/movies/alice%20in%20wonderland/255fk.jpg
-alice_mask = np.array(Image.open(path.join(d, "saito.jpg")))
+alice_mask = np.array(Image.open(path.join(d, "saito2.png")))
 
 stopwords = set(STOPWORDS)
 stopwords.add("said")
