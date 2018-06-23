@@ -8,9 +8,9 @@ class BeautifulSoupPic():
         #self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36'}
         #self.web_url = 'https://www.douban.com/photos/album/127879998'
         #win下目录
-        #self.folder_path = 'D:\BeautifulPicture'
+        self.folder_path = 'D:\BeautifulPicture'
         #mac下目录
-        self.folder_path = '/Users/willdonner/DevsTest'
+        #self.folder_path = '/Users/willdonner/DevsTest'
     def request(self, url): ##返回网页的请求
         r = requests.get(url)
         return r
@@ -47,14 +47,15 @@ class BeautifulSoupPic():
             os.chdir(self.folder_path)
             for a in all_a:
                 reimg_url = a['src']
-                first_pos = reimg_url[0:38]
-                last_pos = reimg_url[43:]
+                first_pos1 = reimg_url[0:37]
+                first_pos = first_pos1+'l'
+                last_pos = reimg_url[38:]
                 first_pos += last_pos
                 img_name = first_pos[-15:-4]
                 self.save_img(first_pos, img_name)
     def get_pic(self):
         #print('请输入你想下载的网址')
-        downlode_url = 'https://www.douban.com/photos/album/1651608212/'
+        downlode_url = 'https://www.douban.com/photos/album/1632064232/'
         print(downlode_url)
         r = self.request(downlode_url)
         print('开始网页get请求')
